@@ -25,7 +25,7 @@ def trayFunction():
         sys.exit(0)
     icon = pystray.Icon(
     name = "Working hard...",
-    icon = create_icon(),Gj
+    icon = create_icon(),
     menu = pystray.Menu(
         pystray.MenuItem("Quit", quitFunction)
         )
