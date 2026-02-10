@@ -2,8 +2,15 @@ import pyautogui, sys, time, random, pynput
 
 last_activity = time.time()
 automatedInput = False
-mouse_listener = pynput.mouse.Listener()
-keyboard_listener = pynput.keyboard.Listener()
+
+def callbackFunction(*args):
+    global automatedInput
+    global last_activity
+    if automatedInput == False:
+        last_activity = time.time()
+
+mouse_listener = pynput.mouse.Listener(on_move=callbackFunction)
+keyboard_listener = pynput.keyboard.Listener(on_press=callbackFunction)        
 
 def mouseMove():
 
