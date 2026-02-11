@@ -20,7 +20,7 @@ mouse_listener = pynput.mouse.Listener(on_move=callbackFunction)
 keyboard_listener = pynput.keyboard.Listener(on_press=callbackFunction)
 
 def trayFunction():
-    def quitFunction():
+    def quitFunction(icon, menu):
         icon.stop()
         sys.exit(0)
     icon = pystray.Icon(
@@ -56,7 +56,7 @@ def main():
     mouse_listener.start()
     while True:
         try:
-            if (time.time() - last_activity) > 10:
+            if (time.time() - last_activity) > 5:
                 mouseMove()
                 last_activity = time.time()
             time.sleep(30)
